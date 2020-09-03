@@ -1,4 +1,4 @@
-EXPORT_MAVEN_HOME='M2_HOME="/opt/apache-maven-3.6.3/"'
+EXPORT_MAVEN_HOME = 'M2_HOME="/opt/apache-maven-3.6.3/"'
 
 pipeline {
     agent any
@@ -34,4 +34,13 @@ pipeline {
                             }
                 }
     }
+
+    post
+            {
+
+                always
+                        {
+                            cleanWs()
+                        }
+            }
 }
