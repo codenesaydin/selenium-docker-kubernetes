@@ -20,9 +20,9 @@ pipeline {
                 {
                     steps
                             {
-                                sh label: 'echo workspace', script: echo ${WORKSPACE}
-                                sh label: 'maven version', script: mvn --version
-                                sh label: 'java version', script: java --version
+                                sh label: 'echo workspace', script: "echo ${WORKSPACE}"
+                                sh label: 'maven version', script: "mvn --version""
+                                sh label: 'java version', script: "java --version""
                             }
                 }
     }
