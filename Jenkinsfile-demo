@@ -1,4 +1,4 @@
-EXPORT_MAVEN_HOME='MAVEN_HOME="/opt/apache-maven-3.6.3/"'
+EXPORT_MAVEN_HOME='M2_HOME="/opt/apache-maven-3.6.3/"'
 
 pipeline {
     agent any
@@ -25,7 +25,7 @@ pipeline {
                                 sh label: 'echo workspace', script: "echo ${WORKSPACE}"
                                 sh label: 'export maven', script: EXPORT_MAVEN_HOME
                                 sh label: 'ls command', script: "ls"
-                                sh label: 'maven version', script: "mvn --version"
+                                sh label: 'maven version', script: "maven --version"
                                 sh label: 'java version', script: "java --version"
                             }
                 }
