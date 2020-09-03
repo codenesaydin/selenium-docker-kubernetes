@@ -1,3 +1,5 @@
+M2_HOME='MAVEN_HOME="/opt/apache-maven-3.6.3"'
+
 pipeline {
     agent any
 
@@ -21,6 +23,7 @@ pipeline {
                     steps
                             {
                                 sh label: 'echo workspace', script: "echo ${WORKSPACE}"
+                                sh label: 'maven version', script: ${M2_HOME}
                                 sh label: 'maven version', script: "mvn --version"
                                 sh label: 'java version', script: "java --version"
                             }
