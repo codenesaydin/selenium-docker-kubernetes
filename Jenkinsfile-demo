@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    parameters
+            {
+                choice(choices: ['WEB', 'IOS', 'ANDROID', 'INTEGRATION'], description: '', name: 'PROJECT')
+                string defaultValue: 'master', description: 'https://jenkins.gtest.sahibindenlocal.net/jenkins/userContent/Tags', name: 'BRANCH', trim: true
+            }
+
+    tools
+            {
+                maven 'Maven 3.0.4'
+            }
+
+    options
+            {
+                ansiColor('xterm')
+            }
+
+    stages {
+
+        stage('Initialize')
+                {
+                    steps
+                            {
+                                sh label: 'Version Generate', script: "echo ${WORKSPACE}"
+                            }
+                }
+    }
+}
