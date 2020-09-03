@@ -25,8 +25,8 @@ pipeline {
                                 sh label: 'echo workspace', script: "echo ${WORKSPACE}"
                                 sh label: 'export maven', script: EXPORT_MAVEN_HOME
                                 sh label: 'ls command', script: "ls"
-                                sh label: 'maven version', script: "maven --version"
                                 sh label: 'java version', script: "java --version"
+                                sh label: 'maven version', script: "maven --version"
                             }
                 }
     }
