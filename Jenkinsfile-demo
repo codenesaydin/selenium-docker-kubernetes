@@ -9,11 +9,6 @@ pipeline {
                 string defaultValue: 'master', description: 'https://jenkins.gtest.sahibindenlocal.net/jenkins/userContent/Tags', name: 'BRANCH', trim: true
             }
 
-    tools
-            {
-                maven $MAVEN_HOME
-            }
-
     options
             {
                 ansiColor('xterm')
