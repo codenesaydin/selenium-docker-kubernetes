@@ -1,11 +1,13 @@
 pipeline {
     agent any
 
+    /*
     parameters
             {
                 choice(choices: ['WEB', 'IOS', 'ANDROID', 'INTEGRATION'], description: '', name: 'PROJECT')
                 string defaultValue: 'master', description: 'https://jenkins.gtest.sahibindenlocal.net/jenkins/userContent/Tags', name: 'BRANCH', trim: true
             }
+     */
 
     options
             {
