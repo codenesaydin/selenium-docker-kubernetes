@@ -38,7 +38,7 @@ pipeline {
                 {
                     steps
                             {
-                                sh label: 'execute', script: "mvn clean install -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
+                                sh label: 'execute', script: "mvn clean install surefire:test -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
                             }
                 }
     }
