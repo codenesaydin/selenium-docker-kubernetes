@@ -1,11 +1,13 @@
 package com;
 
 import com.base.BaseTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 
 @Execution(ExecutionMode.CONCURRENT)
+@Tag("SampleTest")
 public class SahibindenDemo extends BaseTest
 {
     @Test
