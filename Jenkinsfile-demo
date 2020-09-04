@@ -1,4 +1,4 @@
-EXPORT_MAVEN_HOME='M2_HOME="/opt/apache-maven-3.6.3/"'
+EXPORT_MAVEN_HOME = 'M2_HOME="/opt/apache-maven-3.6.3/"'
 
 pipeline {
     agent any
@@ -31,6 +31,14 @@ pipeline {
                                 sh label: 'export maven', script: EXPORT_MAVEN_HOME
                                 sh label: 'java version', script: "java --version"
                                 sh label: 'maven version', script: "mvn --version"
+                            }
+                }
+
+        stage('Test Execute')
+                {
+                    steps
+                            {
+                                sh label: 'execute', script: "mvn clean install -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
                             }
                 }
     }
