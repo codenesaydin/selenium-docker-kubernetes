@@ -18,7 +18,7 @@ public class BaseTest
         System.setProperty("webdriver.chrome.driver", "/opt/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
+        options.setHeadless(true);
 
         driver = new ChromeDriver(options);
 
