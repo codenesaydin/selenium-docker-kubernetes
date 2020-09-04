@@ -21,8 +21,10 @@ public class BaseTest
         options.setHeadless(true);
 
         driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
 
         wait = new WebDriverWait(driver, 15);
+        System.out.println(Thread.currentThread().hashCode());
     }
 
     @AfterEach
