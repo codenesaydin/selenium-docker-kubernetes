@@ -1,4 +1,4 @@
-EXPORT_MAVEN_HOME = 'M2_HOME="/opt/apache-maven-3.6.3/"'
+EXPORT_MAVEN_HOME='M2_HOME="/opt/apache-maven-3.6.3/"'
 
 pipeline {
     agent any
@@ -35,24 +35,12 @@ pipeline {
                 }
     }
 
-    cleanWs { // Clean after build
-        cleanWhenAborted(true)
-        cleanWhenFailure(true)
-        cleanWhenNotBuilt(false)
-        cleanWhenSuccess(true)
-        cleanWhenUnstable(true)
-        deleteDirs(true)
-        notFailBuild(true)
-        disableDeferredWipeout(true)
-        patterns {
-            pattern {
-                type('EXCLUDE')
-                pattern('.propsfile')
+    post
+            {
+
+                always
+                        {
+                            sh label: 'Revert', script: "echo finisned"
+                        }
             }
-            pattern {
-                type('INCLUDE')
-                pattern('.gitignore')
-            }
-        }
-    }
 }
