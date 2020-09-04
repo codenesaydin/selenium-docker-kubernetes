@@ -40,7 +40,7 @@ pipeline {
 
                 always
                         {
-                            sh label: 'Revert', script: "echo finisned"
+                            sh label: 'Finished', script: "echo finisned"
                         }
             }
 }
