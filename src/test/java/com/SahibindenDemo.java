@@ -10,6 +10,7 @@ import org.junit.jupiter.api.parallel.ExecutionMode;
 @Tag("SampleTest")
 public class SahibindenDemo extends BaseTest
 {
+
     @Test
     public void test() throws InterruptedException
     {
