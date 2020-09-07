@@ -31,8 +31,7 @@ public class SahibindenDemo extends BaseTest
     void test3() throws InterruptedException
     {
         Thread.sleep(1000);
-        driver.get("https://jenkins.gtest.sahibindenlocal.net/jenkins/");
+        driver.get("http://localhost:4444/grid/console");
         Thread.sleep(10000);
-
     }
 }
