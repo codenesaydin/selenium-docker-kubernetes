@@ -1,6 +1,7 @@
 package com;
 
 import com.base.BaseTest;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
@@ -12,14 +13,18 @@ import java.io.IOException;
 @Tag("SampleTest")
 public class SahibindenDemo extends BaseTest
 {
+    @AfterEach
+    public void after()
+    {
+        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
+    }
+
     @Test
     public void test() throws InterruptedException, IOException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
-
-        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 
     @Test
@@ -28,8 +33,6 @@ public class SahibindenDemo extends BaseTest
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
-
-        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 
     @Test
@@ -38,8 +41,6 @@ public class SahibindenDemo extends BaseTest
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
-
-        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 
     @Test
@@ -48,8 +49,6 @@ public class SahibindenDemo extends BaseTest
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
-
-        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 
     @Test
@@ -58,8 +57,6 @@ public class SahibindenDemo extends BaseTest
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
-
-        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 
     @Test
@@ -68,7 +65,5 @@ public class SahibindenDemo extends BaseTest
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
-
-        takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 }
