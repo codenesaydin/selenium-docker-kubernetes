@@ -15,5 +15,18 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=3
+      - NODE_MAX_SESSION=3
+
+  firefox:
+    image: selenium/node-firefox
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME -port 4646 -timeout 1200 -browserTimeout 1200" /opt/bin/entry_point.sh'
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
       - NODE_MAX_INSTANCES=10
       - NODE_MAX_SESSION=10
