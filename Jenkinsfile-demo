@@ -38,7 +38,7 @@ pipeline {
                 {
                     steps
                             {
-                                sh label: 'echo workspace', script: "docker-compose up"
+                                sh label: 'docker compose', script: "docker-compose up"
                             }
                 }
 
