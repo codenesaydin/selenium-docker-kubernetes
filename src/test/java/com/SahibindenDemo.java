@@ -14,13 +14,13 @@ import java.io.IOException;
 public class SahibindenDemo extends BaseTest
 {
     @AfterEach
-    public void after()
+    public void after() throws IOException
     {
         takeSnapShot(driver, String.format("images/%s.png", Thread.currentThread().hashCode()));
     }
 
     @Test
-    public void test() throws InterruptedException, IOException
+    public void test() throws InterruptedException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
@@ -28,7 +28,7 @@ public class SahibindenDemo extends BaseTest
     }
 
     @Test
-    void test2() throws InterruptedException, IOException
+    void test2() throws InterruptedException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
@@ -36,7 +36,7 @@ public class SahibindenDemo extends BaseTest
     }
 
     @Test
-    void test3() throws InterruptedException, IOException
+    void test3() throws InterruptedException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
@@ -44,7 +44,7 @@ public class SahibindenDemo extends BaseTest
     }
 
     @Test
-    void test4() throws InterruptedException, IOException
+    void test4() throws InterruptedException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
@@ -52,7 +52,7 @@ public class SahibindenDemo extends BaseTest
     }
 
     @Test
-    void test5() throws InterruptedException, IOException
+    void test5() throws InterruptedException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
@@ -60,7 +60,7 @@ public class SahibindenDemo extends BaseTest
     }
 
     @Test
-    void test6() throws InterruptedException, IOException
+    void test6() throws InterruptedException
     {
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
