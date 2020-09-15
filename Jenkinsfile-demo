@@ -38,7 +38,7 @@ pipeline {
                 {
                     steps
                             {
-                                sh label: 'docker compose', script: "pwd"
+                                sh label: 'pwd', script: "pwd"
                                 sh label: 'docker compose', script: "docker-compose up --scale chrome=5"
                             }
                 }
