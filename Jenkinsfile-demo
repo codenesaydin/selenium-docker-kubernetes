@@ -39,6 +39,7 @@ pipeline {
                     steps
                             {
                                 sh label: 'echo', script: "export PATH=\"/usr/local/bin/docker:$PATH\""
+                                sh label: 'docker compose version', script: "docker-compose --version"
                                 sh label: 'docker compose', script: "docker-compose up --scale chrome=5"
                             }
                 }
