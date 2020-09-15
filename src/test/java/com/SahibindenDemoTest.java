@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @Execution(ExecutionMode.CONCURRENT)
 @Tag("SampleTest")
-public class SahibindenDemo extends BaseTest
+public class SahibindenDemoTest extends BaseTest
 {
     @AfterEach
     public void after() throws IOException
