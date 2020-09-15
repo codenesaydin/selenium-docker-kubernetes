@@ -21,16 +21,18 @@ pipeline {
 
     stages {
 
+        /*
         stage('Environment Info')
-                {
-                    steps
-                            {
-                                sh label: 'echo workspace', script: "echo ${WORKSPACE}"
-                                sh label: 'java version', script: "java --version"
-                                sh label: 'maven version', script: "mvn --version"
-                                sh label: 'export docket', script: "export --version"
-                            }
-                }
+        {
+            steps
+                    {
+                        sh label: 'echo workspace', script: "echo ${WORKSPACE}"
+                        sh label: 'java version', script: "java --version"
+                        sh label: 'maven version', script: "mvn --version"
+                        sh label: 'export docket', script: "export --version"
+                    }
+        }
+         */
 
         stage('Docker Container Initialize')
                 {
