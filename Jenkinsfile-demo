@@ -38,7 +38,7 @@ pipeline {
                 {
                     steps
                             {
-                                sh label: 'export', script: "chmod +x /usr/local/bin/docker-compose"
+                                sh label: 'echo', script: "echo $PATH"
                                 sh label: 'docker compose', script: "docker-compose up --scale chrome=5"
                             }
                 }
