@@ -41,10 +41,6 @@ pipeline {
                             {
                                 sh(script: 'export jenkins_user=$(whoami)')
                                 echo '"${jenkins_user}"'
-
-                                wrap([$class: 'BuildUser']) {
-                                    GET_BUILD_USER = sh(script: 'echo "${BUILD_USER}"', returnStdout: true).trim()
-                                }
                             }
                 }
 
