@@ -49,8 +49,10 @@ pipeline {
                 {
                     steps
                             {
-                                echo "Database engine is ${BUILD_USER}"
-                                sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
+                                wrap([$class: 'BuildUser']) {
+                                    echo "Build user is ${BUILD_USER}"
+                                    sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
+                                }
                             }
                 }
 
