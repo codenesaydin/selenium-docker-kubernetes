@@ -17,14 +17,6 @@ pipeline {
                 ansiColor('xterm')
             }
 
-    agent {
-        node {
-            wrap([$class: 'BuildUser']) {
-                def user = env.BUILD_USER_ID
-            }
-        }
-    }
-
     stages {
 
         /*
@@ -42,35 +34,35 @@ pipeline {
 
         stage('ECHO START JOB USER')
                 {
-                    steps
+                    steps {
+                        wrap([$class: 'BuildUser']) {
+                            sh 'echo "${BUILD_USER}"'
+                        }
+                    }
+
+                    stage('Test Execute')
                             {
-                                sh label: 'echo $BUILD_USER'
+                                steps
+                                        {
+                                            sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
+                                        }
+                            }
+
+                    stage('Test Result')
+                            {
+                                steps
+                                        {
+                                            sh label: 'execute', script: "mvn allure:serve"
+                                        }
                             }
                 }
 
-        stage('Test Execute')
+        post
                 {
-                    steps
-                            {
-                                sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
-                            }
-                }
 
-        stage('Test Result')
-                {
-                    steps
+                    always
                             {
-                                sh label: 'execute', script: "mvn allure:serve"
+                                sh label: 'Finished', script: "echo finisned"
                             }
                 }
     }
-
-    post
-            {
-
-                always
-                        {
-                            sh label: 'Finished', script: "echo finisned"
-                        }
-            }
-}
