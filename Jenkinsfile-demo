@@ -34,11 +34,14 @@ pipeline {
 
         stage('ECHO START JOB USER')
                 {
-                    steps {
-                        wrap([$class: 'BuildUser']) {
-                            sh 'echo "${BUILD_USER}"'
-                        }
-                    }
+                    stage('BUILD USER NAME')
+                            {
+                                steps {
+                                    wrap([$class: 'BuildUser']) {
+                                        sh 'echo "${BUILD_USER}"'
+                                    }
+                                }
+                            }
 
                     stage('Test Execute')
                             {
