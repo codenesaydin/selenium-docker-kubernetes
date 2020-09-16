@@ -19,9 +19,7 @@ pipeline {
                 ansiColor('xterm')
             }
 
-    agent {
-        docker { image 'node:14-alpine' }
-    }
+    agent any
 
     stages {
 
