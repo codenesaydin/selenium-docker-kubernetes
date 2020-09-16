@@ -38,11 +38,19 @@ pipeline {
         }
          */
 
-        stage('Docker Container Initialize')
+        stage('ECHO START JOB USER')
                 {
                     steps
                             {
-                                sh 'node --version'
+                                sh label: 'echo $BUILD_USER'
+                            }
+                }
+
+        stage('Test Execute')
+                {
+                    steps
+                            {
+                                sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
                             }
                 }
 

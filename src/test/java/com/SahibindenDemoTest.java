@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.params.ParameterizedTest;
 
 import java.io.IOException;
 
@@ -43,9 +44,10 @@ public class SahibindenDemoTest extends BaseTest
         Thread.sleep(10000);
     }
 
-    @Test
-    void test4() throws InterruptedException
+    @ParameterizedTest(name="{index}: fib({0})={1}")
+    void test4(String name) throws InterruptedException
     {
+        System.out.println(name);
         Thread.sleep(1000);
         driver.get("https://www.sahibinden.com/");
         Thread.sleep(10000);
