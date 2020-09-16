@@ -39,8 +39,9 @@ pipeline {
                 {
                     steps
                             {
-                                sh(script: 'export jenkins_user=$(whoami)')
-                                echo '"${jenkins_user}"'
+                                wrap([$class: 'BuildUser']) {
+                                    sh 'echo "${BUILD_USER}"'
+                                }
                             }
                 }
 
@@ -48,6 +49,7 @@ pipeline {
                 {
                     steps
                             {
+                                echo "Database engine is ${BUILD_USER}"
                                 sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
                             }
                 }
