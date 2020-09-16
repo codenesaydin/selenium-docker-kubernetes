@@ -54,14 +54,6 @@ pipeline {
                             }
                 }
 
-        stage('Test Execute')
-                {
-                    steps
-                            {
-                                sh label: 'execute', script: "mvn clean install surefire:test -Dtest=SahibindenDemo -Djunit.jupiter.execution.parallel.config.fixed.parallelism=5"
-                            }
-                }
-
         stage('Test Result')
                 {
                     steps
