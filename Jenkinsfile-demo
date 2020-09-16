@@ -40,8 +40,8 @@ pipeline {
                     steps
                             {
                                 wrap([$class: 'BuildUser']) {
-                                    def username = sh 'echo "${BUILD_USER}"'
-                                    echo username
+                                    def user = env.BUILD_USER
+                                    echo user
                                 }
                             }
                 }
